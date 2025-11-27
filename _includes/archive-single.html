@@ -29,7 +29,7 @@
     <h2 class="archive__item-title" itemprop="headline">
       {% if post.collection == 'publications' %}
         {% if post.authors and post.papertitle %}
-          {{ post.authors }} <strong>{{ post.papertitle }}</strong>
+          <span class="publication__authors">{{ post.authors }}</span> <strong class="publication__title">{{ post.papertitle }}</strong>
         {% else %}
           {{ title }}
         {% endif %}

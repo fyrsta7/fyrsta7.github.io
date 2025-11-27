@@ -46,6 +46,17 @@
   a + a {
     opacity: 0.5;
   }
+
+  /* Publications specific styles */
+  .publication__authors {
+    font-weight: bold;
+    font-size: 1em; // Same as parent h2 ($type-size-4, ~20px)
+  }
+
+  .publication__title {
+    font-weight: bold;
+    font-size: 1.25em; // 1.25 * $type-size-4 = $type-size-3 (~25px)
+  }
 }
 
 /* remove border*/
