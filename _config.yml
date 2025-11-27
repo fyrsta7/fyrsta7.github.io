@@ -86,10 +86,13 @@ author:
 publication_category:
   books:
     title: 'Books'
-  manuscripts:
-    title: 'Journal Articles'    
+  arxiv:
+    title: 'Under Review'
   conferences:
-    title: 'Conference Papers'
+    title: 'Conference'
+  manuscripts:
+    title: 'Journal'    
+
 
 # Site Settings
 teaser                   :  # filename of teaser fallback teaser image placed in /images/ for social media previews
