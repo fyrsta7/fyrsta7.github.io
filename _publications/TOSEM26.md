@@ -7,6 +7,6 @@ permalink: /publication/TOSEM26
 excerpt: 
 date: 2026-6-12
 venue: 'TOSEM'
-paperurl: 'http://fyrsta7.github.io/files/TOSEM26.pdf'
+paperurl: 'https://dl.acm.org/doi/10.1145/3820167'
 citation: 
 ---
