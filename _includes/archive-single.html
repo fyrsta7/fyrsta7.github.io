@@ -31,7 +31,8 @@
         <span class="publication__title">{{ post.papertitle | default: title }}</span>
       </h3>
       {% if post.authors %}
-        <p class="publication__authors">{{ post.authors }}</p>
+        {% assign highlighted_authors = post.authors | replace: "Yuwei Zhao", "<strong>Yuwei Zhao</strong>" %}
+        <p class="publication__authors">{{ highlighted_authors }}</p>
       {% endif %}
     {% else %}
       <h2 class="archive__item-title" itemprop="headline">
@@ -52,7 +53,7 @@
         {% elsif post.collection == 'publications' and post.status %}
           <p class="publication__meta">{{ post.status }}, {{ post.date | default: "1900-01-01" | date: "%Y" }}</p>
         {% elsif post.collection == 'publications' %}
-          <p class="publication__meta">Published in {{ post.venue }}, {{ post.date | default: "1900-01-01" | date: "%Y" }}</p>
+          <p class="publication__meta">{{ post.venue }}, {{ post.date | default: "1900-01-01" | date: "%Y" }}</p>
         {% elsif post.date %}
          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</strong> <time datetime="{{ post.date | default: "1900-01-01" | date_to_xmlschema }}">{{ post.date | default: "1900-01-01" | date: "%B %d, %Y" }}</time></p>
         {% endif %}
