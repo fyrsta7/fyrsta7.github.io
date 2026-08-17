@@ -1,8 +1,8 @@
 {% assign sorted_publications = site.publications | sort: "date" | reverse %}
-<ol class="publication-list">
+<ul class="publication-list">
 {% for post in sorted_publications %}
 <li class="publication-list__item">
 {% include archive-single.html type="publication" %}
 </li>
 {% endfor %}
-</ol>
+</ul>

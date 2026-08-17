@@ -28,7 +28,11 @@
 
     {% if post.collection == 'publications' %}
       <h3 class="archive__item-title" itemprop="headline">
-        <span class="publication__title">{{ post.papertitle | default: title }}</span>
+        {% if post.paperurl %}
+          <a class="publication__title" href="{{ post.paperurl }}">{{ post.papertitle | default: title }}</a>
+        {% else %}
+          <span class="publication__title">{{ post.papertitle | default: title }}</span>
+        {% endif %}
       </h3>
       {% if post.authors %}
         {% assign highlighted_authors = post.authors | replace: "Yuwei Zhao", "<strong>Yuwei Zhao</strong>" %}
@@ -83,7 +87,7 @@
       <p>Recommended citation: {{ post.citation }}</p>
     {% elsif post.paperurl and post.bibtexurl %}
       <p><a href=" {{ post.paperurl }} ">Download Paper</a> | <a href="{{ post.bibtexurl }}">Download Bibtex</a></p>
-    {% elsif post.paperurl %}
+    {% elsif post.paperurl and post.collection != 'publications' %}
       <p class="publication__links"><a href="{{ post.paperurl }}">Download Paper</a></p>
     {% elsif post.slidesurl and post.bibtexurl %}
       <p><a href="{{ post.slidesurl }}">Download Slides</a> | <a href="{{ post.bibtexurl }}">Download Bibtex</a></p>
