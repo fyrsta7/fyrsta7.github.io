@@ -9,7 +9,7 @@ redirect_from:
 
 Hello, I'm Yuwei Zhao, a Ph.D. student at the [School of Computer Science](https://cs.pku.edu.cn/English/Home.htm), [Peking University](https://english.pku.edu.cn/), supervised by [Prof. Yingfei Xiong](https://xiongyingfei.github.io/).
 
-My research focuses on automated code performance optimization with large language models. I explore how LLMs can understand programs, identify optimization opportunities, and generate verifiable high-performance implementations, using techniques from program analysis, retrieval-augmented generation (RAG), and performance testing. I am particularly interested in performance gains, reliability, and transferability across programming languages and real-world projects.
+My research focuses on automated code performance optimization with large language models, with particular attention to performance gains, reliability, and transferability across programming languages and real-world projects.
 
 ## Education
 
