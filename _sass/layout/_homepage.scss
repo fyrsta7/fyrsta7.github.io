@@ -4,6 +4,8 @@
 
 .education-list {
   margin: 1em 0 2em;
+  font-size: 0.9em;
+  line-height: 1.45;
 }
 
 .education-entry {
@@ -14,11 +16,12 @@
   h3,
   p {
     margin: 0;
+    font-size: 1em;
+    line-height: 1.45;
   }
 
   h3 {
     padding-bottom: 0.25em;
-    font-size: $type-size-5;
   }
 
   &__institution {
@@ -28,7 +31,6 @@
   &__date {
     padding-top: 0.25em;
     color: var(--global-text-color);
-    font-size: $type-size-6;
     opacity: 0.75;
   }
 }
