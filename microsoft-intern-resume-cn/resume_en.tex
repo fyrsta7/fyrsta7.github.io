@@ -1,0 +1,137 @@
+%!TEX program = xelatex
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[a4paper,top=1.18cm,bottom=1.05cm,left=1.45cm,right=1.45cm]{geometry}
+\usepackage{xcolor}
+\usepackage{fontspec}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{ragged2e}
+\usepackage{array}
+
+\definecolor{msblue}{HTML}{0067B8}
+\definecolor{ink}{HTML}{17212B}
+\definecolor{muted}{HTML}{4E5968}
+\definecolor{rulegray}{HTML}{D6DCE3}
+
+\setmainfont{Avenir Next}
+\setsansfont{Avenir Next}
+\renewcommand{\familydefault}{\sfdefault}
+\linespread{1.04}
+\color{ink}
+
+\hypersetup{
+  colorlinks=true,
+  urlcolor=msblue,
+  linkcolor=msblue,
+  pdfauthor={Yuwei Zhao},
+  pdftitle={Yuwei Zhao - English Resume}
+}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlist[itemize]{leftmargin=1.35em,itemsep=2.5pt,topsep=1pt,parsep=0pt,partopsep=0pt}
+
+\titleformat{\section}
+  {\large\bfseries\color{msblue}}
+  {}{0pt}{}
+  [\vspace{-3pt}\color{rulegray}\titlerule]
+\titlespacing*{\section}{0pt}{8pt}{10pt}
+
+\newcommand{\datedentry}[3]{%
+  \begin{tabularx}{\textwidth}{@{}>{\bfseries}X>{\raggedleft\arraybackslash}p{3.2cm}@{}}
+    #1 & \textcolor{muted}{#2}\\[-1pt]
+    \multicolumn{2}{@{}>{\raggedright\arraybackslash}p{\textwidth}@{}}{\textcolor{muted}{#3}}
+  \end{tabularx}
+}
+
+\newcommand{\researchpaperentry}[6]{%
+  \item \textbf{#1}\\[-1pt]
+  {\small #2\hfill\textbf{\textcolor{msblue}{#3}}}
+  \begin{itemize}[leftmargin=1.3em,label={\textcolor{msblue}{\scriptsize\textbullet}},itemsep=1pt,topsep=2pt,parsep=0pt,partopsep=0pt]
+    \small
+    \item \textbf{Approach:} #4
+    \item \textbf{Historical optimization reproduction:} #5
+    \item \textbf{Real-world optimization:} #6
+  \end{itemize}
+}
+
+\newcommand{\paperentrywithsummary}[4]{%
+  \item \textbf{#1}\\[-1pt]
+  {\small #2\hfill\textbf{\textcolor{msblue}{#3}}}
+  \begin{itemize}[leftmargin=1.3em,label={\textcolor{msblue}{\scriptsize\textbullet}},itemsep=1pt,topsep=2pt,parsep=0pt,partopsep=0pt]
+    \small
+    \item \textbf{Summary:} #4
+  \end{itemize}
+}
+
+\newcommand{\awardentry}[2]{%
+  \noindent #1\hfill\textcolor{muted}{#2}\par\vspace{3.5pt}
+}
+
+\begin{document}
+
+\begin{tabularx}{\textwidth}{@{}X>{\raggedleft\arraybackslash}p{10.2cm}@{}}
+  {\fontsize{25}{28}\selectfont\bfseries Yuwei Zhao}
+  & {\small
+      \begin{tabular}{@{}l@{\hspace{1.1em}}l@{}}
+        \textbf{Phone:} 173 9804 7360 &
+        \textbf{Email:} \href{mailto:zhaoyuwei@stu.pku.edu.cn}{zhaoyuwei@stu.pku.edu.cn}\\[-1pt]
+        \multicolumn{2}{@{}l@{}}{\textbf{Website:} \href{https://fyrsta7.github.io/}{https://fyrsta7.github.io/}}
+      \end{tabular}
+    }\\
+\end{tabularx}
+
+\vspace{4pt}
+{\color{msblue}\rule{\textwidth}{1.35pt}}\par
+
+\section{Education}
+\datedentry{Peking University | School of Computer Science | Ph.D. Student}{2024.09 -- Present}{Advisor: Prof. Yingfei Xiong}
+\vspace{4pt}
+\datedentry{Peking University | School of Electronics Engineering and Computer Science | B.S.}{2020.09 -- 2024.06}{Major: Information and Computing Science | Thesis: Automatic Synthesis of Dynamic Programming Algorithms via Abstract Interpretation}
+
+\section{Research Profile}
+My research focuses on \textbf{LLM-based automated code performance optimization}: using language models to understand programs, identify optimization opportunities, and generate verifiable high-performance implementations. I combine program analysis, synthesis, rule/example guidance, and performance testing, emphasizing gains, reliability, and transferability across languages and large-scale projects.
+
+\section{Publications}
+\begin{itemize}
+  \researchpaperentry
+    {Multi-Source and Cross-Scenario Strategy-Guided Code Optimization}
+    {\textbf{Yuwei Zhao}, Qianyu Xiao, Ye Cui, Yijun Yu, Yingfei Xiong}
+    {Under Review, 2026}
+    {Proposed MoST, a multi-source and cross-scenario strategy-transfer framework that clusters and transfers evidence to generate static-analysis rules, overcoming single-source knowledge and cross-language reuse limitations.}
+    {Reproduced developer patches on 151 C/C++, 150 Python, and 50 Rust historical optimization tasks, yielding 21.88\%--180.00\% more successful reproductions than SemOpt.}
+    {Discovered and applied previously unseen optimizations in 15 projects, achieving 19.72\%--717.42\% maximum and 4.44\%--258.17\% average improvements. Outperformed SemOpt and Codex on maximum gains in 15/15 projects and average gains in 14/15.}
+  \researchpaperentry
+    {SemOpt: LLM-Driven Code Optimization via Rule-Based Analysis}
+    {\textbf{Yuwei Zhao}, Yuan-An Xiao, Qianyu Xiao, Zhao Zhang, Yingfei Xiong}
+    {TOSEM (CCF-A), 2026}
+    {Proposed an LLM- and static-analysis-rule-driven optimization framework that distills strategies from historical commits and generates Semgrep rules, addressing the inability of syntax-based retrieval to match semantically equivalent optimizations.}
+    {Reproduced developer patches on 151 C/C++ and 150 Python historical optimization tasks. Successful reproductions were 1.38--28$\times$ and 4.60--6.33$\times$ those of the baselines, respectively.}
+    {Discovered and applied previously unseen optimizations in 10 large-scale projects, achieving 5.04\%--479.90\% maximum and 1.68\%--143.25\% average improvements.}
+  \paperentrywithsummary
+    {Superfusion: Eliminating Intermediate Data Structures via Inductive Synthesis}
+    {Ruyi Ji, \textbf{Yuwei Zhao}, Nadia Polikarpova, Yingfei Xiong, Zhenjiang Hu}
+    {PLDI (CCF-A), 2024}
+    {SuFu uses inductive program synthesis to eliminate intermediate data structures in functional programs, solving 264 of 290 tasks.}
+  \paperentrywithsummary
+    {Decomposition-Based Synthesis for Applying Divide-and-Conquer-Like Algorithmic Paradigms}
+    {Ruyi Ji, \textbf{Yuwei Zhao}, Yingfei Xiong, Di Wang, Lu Zhang, Zhenjiang Hu}
+    {TOPLAS (CCF-A), 2024}
+    {AutoLifter decomposes synthesis through component and variable elimination, automatically applies six divide-and-conquer paradigms, and solves 82 of 96 tasks.}
+\end{itemize}
+
+\section{Awards}
+\awardentry{Kunpeng Ascend KADC Rising Star Pioneer Award}{2026}
+\awardentry{Jiukun Scholarship, School of Computer Science, Peking University}{2025}
+\awardentry{Merit Student, Peking University}{2025, 2023, 2021}
+\awardentry{Beijing Outstanding Graduate}{2024}
+\awardentry{Outstanding Graduate, Peking University}{2024}
+\awardentry{Third-Class Scholarship, Peking University}{2023, 2021}
+\awardentry{Academic Excellence Award, Peking University}{2022}
+
+\end{document}

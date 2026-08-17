@@ -1,0 +1,158 @@
+%!TEX program = xelatex
+\documentclass[10pt,a4paper,fontset=none]{ctexart}
+
+\usepackage[a4paper,top=1.18cm,bottom=1.05cm,left=1.45cm,right=1.45cm]{geometry}
+\usepackage{xcolor}
+\usepackage{fontspec}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{ragged2e}
+\usepackage{array}
+
+\definecolor{msblue}{HTML}{0067B8}
+\definecolor{ink}{HTML}{17212B}
+\definecolor{muted}{HTML}{4E5968}
+\definecolor{rulegray}{HTML}{D6DCE3}
+
+\setmainfont{Avenir Next}
+\setsansfont{Avenir Next}
+\setCJKmainfont[
+  Path=/usr/local/texlive/2023/texmf-dist/fonts/opentype/public/fandol/,
+  BoldFont=FandolSong-Bold.otf
+]{FandolSong-Regular.otf}
+\setCJKsansfont[
+  Path=/usr/local/texlive/2023/texmf-dist/fonts/opentype/public/fandol/,
+  BoldFont=FandolHei-Bold.otf
+]{FandolHei-Regular.otf}
+\setCJKmonofont[
+  Path=/usr/local/texlive/2023/texmf-dist/fonts/opentype/public/fandol/
+]{FandolFang-Regular.otf}
+\newCJKfontfamily\awardbrandfont{Heiti SC}
+\renewcommand{\familydefault}{\sfdefault}
+\color{ink}
+% Preserve searchable/copyable Unicode text in the generated PDF.
+\XeTeXgenerateactualtext=1
+
+\hypersetup{
+  colorlinks=true,
+  urlcolor=msblue,
+  linkcolor=msblue,
+  pdfauthor={Yuwei Zhao},
+  pdftitle={赵雨薇 - 中文简历}
+}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlist[itemize]{leftmargin=1.35em,itemsep=1.2pt,topsep=0pt,parsep=0pt,partopsep=0pt}
+
+\titleformat{\section}
+  {\large\bfseries\color{msblue}}
+  {}{0pt}{}
+  [\vspace{-3pt}\color{rulegray}\titlerule]
+% Every module uses the same fixed space above and below its heading.
+\titlespacing*{\section}{0pt}{6pt}{8pt}
+
+\newcommand{\datedentry}[3]{%
+  \begin{tabularx}{\textwidth}{@{}>{\bfseries}X>{\raggedleft\arraybackslash}p{3.2cm}@{}}
+    #1 & \textcolor{muted}{#2}\\[-1pt]
+    \multicolumn{2}{@{}l@{}}{\textcolor{muted}{#3}}
+  \end{tabularx}
+}
+
+\newcommand{\paperentry}[3]{%
+  \item \textbf{#1}\\[-1pt]
+  {\small #2\hfill\textbf{\textcolor{msblue}{#3}}}
+}
+
+\newcommand{\researchpaperentry}[6]{%
+  \item \textbf{#1}\\[-1pt]
+  {\small #2\hfill\textbf{\textcolor{msblue}{#3}}}
+  \begin{itemize}[leftmargin=1.3em,label={\textcolor{msblue}{\scriptsize\textbullet}},itemsep=0pt,topsep=1pt,parsep=0pt,partopsep=0pt]
+    \small
+    \item \textbf{方法：}#4
+    \item \textbf{历史优化复现：}#5
+    \item \textbf{真实项目优化：}#6
+  \end{itemize}
+}
+
+\newcommand{\paperentrywithsummary}[4]{%
+  \item \textbf{#1}\\[-1pt]
+  {\small #2\hfill\textbf{\textcolor{msblue}{#3}}}
+  \begin{itemize}[leftmargin=1.3em,label={\textcolor{msblue}{\scriptsize\textbullet}},itemsep=0pt,topsep=1pt,parsep=0pt,partopsep=0pt]
+    \small
+    \item \textbf{主要内容：}#4
+  \end{itemize}
+}
+
+\newcommand{\awardentry}[2]{%
+  \noindent{\awardbrandfont #1}\hfill\textcolor{muted}{#2}\par\vspace{2pt}
+}
+
+\begin{document}
+
+\begin{tabularx}{\textwidth}{@{}X>{\raggedleft\arraybackslash}p{10.2cm}@{}}
+  {\fontsize{25}{28}\selectfont\bfseries 赵雨薇}\quad
+  {\large\color{muted}Yuwei Zhao}
+  & {\small
+      \begin{tabular}{@{}l@{\hspace{1.1em}}l@{}}
+        \textbf{电话：}173 9804 7360 &
+        \textbf{邮箱：}\href{mailto:zhaoyuwei@stu.pku.edu.cn}{zhaoyuwei@stu.pku.edu.cn}\\[-1pt]
+        \multicolumn{2}{@{}l@{}}{\textbf{个人主页：}\href{https://fyrsta7.github.io/}{https://fyrsta7.github.io/}}
+      \end{tabular}
+    }\\
+\end{tabularx}
+
+\vspace{4pt}
+{\color{msblue}\rule{\textwidth}{1.35pt}}\par
+
+\section{教育经历}
+\datedentry{北京大学｜计算机学院｜博士研究生}{2024.09 -- 至今}{导师：熊英飞教授}
+\vspace{3pt}
+\datedentry{北京大学｜信息科学技术学院｜本科}{2020.09 -- 2024.06}{专业：信息与计算科学｜毕业论文：基于抽象解释的动态规划算法自动合成}
+\vspace{-10pt}
+
+\section{科研概况}
+研究方向为\textbf{基于大语言模型的自动代码性能优化}，探索如何利用大模型理解程序、识别优化机会并生成可验证的高性能实现。研究综合运用程序分析、程序综合、规则与样例引导、性能测试等技术，重点考察方法在多种编程语言和真实大型项目中的性能收益、可靠性与可迁移性。
+
+\section{论文成果}
+\begin{itemize}
+  \researchpaperentry
+    {Multi-Source and Cross-Scenario Strategy-Guided Code Optimization}
+    {\textbf{Yuwei Zhao}, Qianyu Xiao, Ye Cui, Yijun Yu, Yingfei Xiong}
+    {Under Review, 2026}
+    {提出 MoST 多知识源、跨场景策略迁移框架，以证据聚类与迁移生成静态分析规则，突破单源知识与跨语言复用限制。}
+    {在 151 个 C/C++、150 个 Python、50 个 Rust 历史优化任务中复现开发者修改，成功复现数较 SemOpt 提升 21.88\%--180.00\%。}
+    {在 15 个真实项目中发现并应用原仓库尚未采用的新优化，单项最高、项目平均分别提升 19.72\%--717.42\%、4.44\%--258.17\%。相较 SemOpt 与 Codex，15/15 个项目单项提升最高，14/15 个项目平均提升最高。}
+  \researchpaperentry
+    {SemOpt: LLM-Driven Code Optimization via Rule-Based Analysis}
+    {\textbf{Yuwei Zhao}, Yuan-An Xiao, Qianyu Xiao, Zhao Zhang, Yingfei Xiong}
+    {TOSEM (CCF-A), 2026}
+    {提出 LLM 与静态分析规则驱动的优化框架，从历史提交中提炼策略并生成 Semgrep 规则，克服语法检索难以匹配语义等价优化的局限。}
+    {在 151 个 C/C++、150 个 Python 历史优化任务中复现开发者修改，成功复现数较基线分别提升 1.38--28 倍、4.60--6.33 倍。}
+    {在 10 个大型项目中发现并应用原仓库尚未采用的新优化，单项最高、项目平均分别提升 5.04\%--479.90\%、1.68\%--143.25\%。}
+  \paperentrywithsummary
+    {Superfusion: Eliminating Intermediate Data Structures via Inductive Synthesis}
+    {Ruyi Ji, \textbf{Yuwei Zhao}, Nadia Polikarpova, Yingfei Xiong, Zhenjiang Hu}
+    {PLDI (CCF-A), 2024}
+    {SuFu 以归纳程序综合消除函数式程序的中间数据结构，在 290 个任务中解决 264 个。}
+  \paperentrywithsummary
+    {Decomposition-Based Synthesis for Applying Divide-and-Conquer-Like Algorithmic Paradigms}
+    {Ruyi Ji, \textbf{Yuwei Zhao}, Yingfei Xiong, Di Wang, Lu Zhang, Zhenjiang Hu}
+    {TOPLAS (CCF-A), 2024}
+    {AutoLifter 以组件消除和变量消除分解综合任务，自动应用 6 类分治算法范式，在 96 个任务中解决 82 个。}
+\end{itemize}
+
+\section{获奖经历}
+\awardentry{2026年鲲鹏昇腾 KADC 明日之星先锋奖}{2026}
+\awardentry{北京大学计算机学院九坤奖学金}{2025}
+\awardentry{北京大学三好学生}{2025、2023、2021}
+\awardentry{北京市普通高等学校优秀毕业生}{2024}
+\awardentry{北京大学优秀毕业生}{2024}
+\awardentry{北京大学三等奖学金}{2023、2021}
+\awardentry{北京大学学习优秀奖}{2022}
+
+\end{document}
