@@ -48,14 +48,8 @@
   }
 
   /* Publications specific styles */
-  .publication__authors {
-    font-weight: normal;
-    font-size: 0.8em; // Same as parent h2 ($type-size-4, ~20px)
-  }
-
   .publication__title {
-    font-weight: normal;
-    font-size: 0.8em; // 1.25 * $type-size-4 = $type-size-3 (~25px)
+    font-weight: 600;
   }
 }
 

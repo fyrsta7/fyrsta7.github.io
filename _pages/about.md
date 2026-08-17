@@ -11,15 +11,21 @@ Hello, I'm Yuwei Zhao, a Ph.D. student (September 2024–present) at the [School
 
 ## Education
 
-### Peking University
+<div class="education-list">
+  <section class="education-entry">
+    <h3>Ph.D.</h3>
+    <p class="education-entry__institution"><a href="https://english.pku.edu.cn/">Peking University</a></p>
+    <p>School of Computer Science</p>
+    <p class="education-entry__date">September 2024–present</p>
+  </section>
 
-**Ph.D. Student, School of Computer Science** · September 2024–present<br>
-Advisor: [Prof. Yingfei Xiong](https://xiongyingfei.github.io/)
-
-### Peking University
-
-**B.S. in Information and Computing Science, School of Electronics Engineering and Computer Science** · September 2020–June 2024<br>
-Undergraduate thesis: *Automatic Synthesis of Dynamic Programming Algorithms via Abstract Interpretation*
+  <section class="education-entry">
+    <h3>B.S. in Information and Computing Science</h3>
+    <p class="education-entry__institution"><a href="https://english.pku.edu.cn/">Peking University</a></p>
+    <p>School of Electronics Engineering and Computer Science</p>
+    <p class="education-entry__date">September 2020–June 2024</p>
+  </section>
+</div>
 
 ## Publications
 

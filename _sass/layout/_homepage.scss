@@ -1,0 +1,54 @@
+/* ==========================================================================
+   HOMEPAGE
+   ========================================================================== */
+
+.education-list {
+  margin: 1em 0 2em;
+}
+
+.education-entry {
+  margin: 0 0 1.5em;
+  padding-left: 1em;
+  border-left: 3px solid var(--global-link-color);
+
+  h3,
+  p {
+    margin: 0;
+  }
+
+  h3 {
+    padding-bottom: 0.25em;
+    font-size: $type-size-5;
+  }
+
+  &__institution {
+    font-weight: 600;
+  }
+
+  &__date {
+    padding-top: 0.25em;
+    color: var(--global-text-color);
+    font-size: $type-size-6;
+    opacity: 0.75;
+  }
+}
+
+.publication__authors,
+.publication__meta,
+.publication__links {
+  margin: 0 0 0.25em;
+}
+
+.publication__authors {
+  font-size: $type-size-6;
+}
+
+.publication__meta {
+  color: var(--global-text-color);
+  font-size: $type-size-6;
+  opacity: 0.75;
+}
+
+.publication__links {
+  font-size: $type-size-6;
+}
